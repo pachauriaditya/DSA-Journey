@@ -1,3 +1,13 @@
+// Problem Name: Reverse an Array
+
+/*
+Approach:
+- Use two pointers: one at start and one at end.
+- Swap elements at both pointers.
+- Move start forward and end backward.
+- Repeat until both pointers meet or cross.
+*/
+
 public class ReverseArray {
 
     public static void reverseArray(int nums[]) {
@@ -7,13 +17,14 @@ public class ReverseArray {
             int temp = nums[last];
             nums[last] = nums[first];
             nums[first] = temp;
+
             first++;
             last--;
         }
     }
 
     public static void main(String args[]) {
-        int nums[] = {2,4,6,8,10};
+        int nums[] = { 2, 4, 6, 8, 10 };
 
         reverseArray(nums);
 
@@ -22,3 +33,8 @@ public class ReverseArray {
         }
     }
 }
+
+/*
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ */

@@ -1,23 +1,40 @@
-public class kadanesAlgo {
-    public static void kadanes( int nums[]){
-        int maxSum = Integer.MIN_VALUE;
-        int currSum =0;
+// Problem Name: Kadane’s Algorithm (Maximum Subarray Sum)
 
-        for( int i=0; i< nums.length;i++){
+/*
+Approach:
+- Traverse the array and keep a running current sum.
+- If current sum becomes negative, reset it to 0.
+- Keep updating maximum sum found so far.
+- This works only when at least one positive number exists.
+- For all-negative arrays, this version may fail (needs extra handling if required).
+*/
+
+public class kadanesAlgo {
+
+    public static void kadanes(int nums[]) {
+        int maxSum = Integer.MIN_VALUE;
+        int currSum = 0;
+
+        for (int i = 0; i < nums.length; i++) {
             currSum += nums[i];
-            if( currSum <0){
+
+            if (currSum < 0) {
                 currSum = 0;
             }
-            maxSum = Math.max(currSum,maxSum); /*if all the elements are zero 
-            // then in that case we don't use this line 
-            // and  the rest of the code will be same*/
+
+            maxSum = Math.max(currSum, maxSum);
         }
-        System.out.println("Max subarrarray sum = " + maxSum);
+
+        System.out.println("Max subarray sum = " + maxSum);
     }
 
     public static void main(String[] args) {
-        int nums[] = {-2,-3,4,-1,1,5,-3};
+        int nums[] = { -2, -3, 4, -1, 1, 5, -3 };
         kadanes(nums);
     }
-    
 }
+
+/*
+ * Time Complexity: O(n)
+ * Space Complexity: O(1)
+ */

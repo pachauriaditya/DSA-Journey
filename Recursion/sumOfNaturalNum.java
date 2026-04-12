@@ -1,19 +1,35 @@
 import java.util.*;
-public class sumOfNaturalNum{
-    public static int calcSum( int n){
-        if( n == 1){
+
+public class sumOfNaturalNum {
+
+    public static int calcSum(int n) {
+        if (n == 1) {
             return 1;
         }
-        int Snm1 = calcSum(n-1);
+
+        int Snm1 = calcSum(n - 1);
         int Sn = n + Snm1;
+
         return Sn;
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner( System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter number ");
         int n = sc.nextInt();
-        System.out.println(calcSum(n));
 
+        System.out.println(calcSum(n));
     }
 }
+
+/*
+ * Problem Name: Sum of Natural Numbers (Recursion)
+ * 
+ * Approach:
+ * - Base case: if n == 1 return 1.
+ * - Recursive relation: sum(n) = n + sum(n-1).
+ * - Add current number with result of smaller problem.
+ * 
+ * Time Complexity: O(n)
+ * Space Complexity: O(n) (recursion stack)
+ */
