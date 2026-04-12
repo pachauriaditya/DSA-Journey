@@ -44,8 +44,6 @@ Organized by topic, each folder contains standard topic implementations and solu
 ## 📈 Platforms Practiced On
 - [LeetCode](https://leetcode.com/)
 - [GeeksforGeeks](https://www.geeksforgeeks.org/)
-- [HackerRank](https://www.hackerrank.com/)
-- [Codeforces](https://codeforces.com/)
 
 ## 💡 Notes & Progress
 - **Consistency is key!** Aiming to solve problems consistently.
