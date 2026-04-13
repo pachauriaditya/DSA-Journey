@@ -1,3 +1,10 @@
+// Problem: Convert first letter of each word in a string to uppercase
+// Approach: 
+// 1. Convert first character to uppercase
+// 2. Traverse string
+// 3. If space found, capitalize next character
+// Time Complexity: O(n)
+// Space Complexity: O(n)
 package String;
 
 public class upperCase {

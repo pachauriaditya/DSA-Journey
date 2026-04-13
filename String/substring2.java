@@ -1,3 +1,7 @@
+// Problem: Extract substring from a given string using manual approach
+// Approach: Iterate from start index (si) to end index (ei) and build new string
+// Time Complexity: O(n)
+// Space Complexity: O(n)
 // brute force approach
 package String;
 

@@ -1,3 +1,7 @@
+// Problem: Generate a string of lowercase alphabets from a to z
+// Approach: Use StringBuilder and append characters in loop
+// Time Complexity: O(n)
+// Space Complexity: O(n)
 package String;
 
 public class addElements {

@@ -4,6 +4,11 @@
    and the letter which comes firstbis considered as small and which comes later considered as large
 */
 
+// Problem: Find the lexicographically largest string in an array
+// Approach: Initialize with first element, then compare using compareTo() and update largest
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+
 package String;
 
 public class largestString {

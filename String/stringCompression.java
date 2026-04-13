@@ -1,7 +1,8 @@
-/*
-  No. of times any string occur write that number
-  example: aaabbcccdd -> a3b2c3d2
-*/
+// Problem: Compress a string by replacing consecutive repeated characters with character + count
+// Example: aaabbcccdd -> a3b2c3d2
+// Approach: Traverse string, count consecutive same characters, append char + count
+// Time Complexity: O(n)
+// Space Complexity: O(n)
 package String;
 
 public class stringCompression {

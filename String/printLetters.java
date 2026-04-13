@@ -1,3 +1,7 @@
+// Problem: Print all characters of a given string with spaces
+// Approach: Traverse the string and print each character using charAt()
+// Time Complexity: O(n)
+// Space Complexity: O(1)
 package String;
 
 public class printLetters {

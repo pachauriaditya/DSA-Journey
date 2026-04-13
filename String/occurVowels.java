@@ -1,6 +1,7 @@
-/*
-  count how many times lowercase vowels occured in a string entered by the  user.
-*/
+// Problem: Count the number of lowercase vowels in a given string
+// Approach: Traverse the string and check each character against vowels (a, e, i, o, u)
+// Time Complexity: O(n)
+// Space Complexity: O(1)
 package String;
 
 import java.util.*;

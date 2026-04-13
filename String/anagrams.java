@@ -1,3 +1,8 @@
+// Problem: Check whether two strings are anagrams or not
+// Approach: Convert strings to lowercase, compare lengths, sort both strings and check equality
+// Time Complexity: O(n log n)
+// Space Complexity: O(n)
+
 /*
   Anagram --> if two strings contain the same characters but in a different order.
   exampple: race and care.

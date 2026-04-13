@@ -1,4 +1,9 @@
-// Given a route containing 4 directions ( E,W,N,S). Find the shortest path to reach destination - "WNEENESENNN"
+// Problem: Find the shortest path distance after following directions (N, S, E, W)
+// Approach: Track displacement on x and y axis
+// N -> y+1, S -> y-1, E -> x+1, W -> x-1
+// Final distance = sqrt(x^2 + y^2)
+// Time Complexity: O(n)
+// Space Complexity: O(1)
 package String;
 
 public class shortestPath {

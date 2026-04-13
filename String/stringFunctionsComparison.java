@@ -1,3 +1,9 @@
+// Problem: Compare String objects using == vs equals()
+// Approach: 
+// == compares reference (memory address)
+// equals() compares actual content of strings
+// Time Complexity: O(n) for equals(), O(1) for ==
+// Space Complexity: O(1)
 package String;
 
 public class stringFunctionsComparison {
