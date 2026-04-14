@@ -106,9 +106,8 @@ To build strong problem-solving skills, master DSA concepts, and prepare for cod
 ---
 
 ## 📈 Platforms I Practice On
-- LeetCode: https://leetcode.com/
-- GeeksforGeeks: https://www.geeksforgeeks.org/
-- HackerRank: https://www.hackerrank.com/
+- LeetCode
+- GeeksforGeeks
 
 ---
 
