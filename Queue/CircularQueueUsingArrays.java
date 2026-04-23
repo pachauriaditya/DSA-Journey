@@ -57,7 +57,7 @@
      Efficient operations (O(1))
 
    Key Idea:
-     Array behaves like a circle using modulo operation
+     Array behaves like a circle using modulo operation...
 */
 
 package Queue;

@@ -46,7 +46,7 @@
      This implementation is not efficient because remove()
      takes O(n) time due to shifting.
 
-     Better approach → Circular Queue (O(1) operations)
+     Better approach → Circular Queue (O(1) operations)...
 */
 
 package Queue;
