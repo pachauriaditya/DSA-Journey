@@ -17,12 +17,12 @@ public class addFirst {
 
     public static Node head;
     public static Node tail;
-    public static int size;
+   
 
     // add first
     public void addFirst(int data) {
         Node newNode = new Node(data);
-        size++;
+      
 
         if (head == null) {
             head = tail = newNode;
