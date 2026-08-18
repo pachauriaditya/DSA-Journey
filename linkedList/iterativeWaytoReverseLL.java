@@ -43,6 +43,10 @@ public class iterativeWaytoReverseLL {
 
     // Reverse Linked List
     private static Node reverseLL(Node head) {
+
+        if(head == null || head.next == null){
+            return head;
+        }
         Node temp = head;
         Node prev = null;
 

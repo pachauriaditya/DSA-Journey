@@ -1,5 +1,5 @@
-// Problem: Check if Linked List is Palindrome
-// Approach: Find middle, reverse second half, compare both halves
+// Problem: Palindrome Linked List
+// Approach: Find middle + Reverse second half + Compare
 // Time Complexity: O(n)
 // Space Complexity: O(1)
 
@@ -13,87 +13,15 @@ public class Palindrome {
             this.data = data;
             this.next = null;
         }
+
+        public Node(int data, Node next) {
+            this.data = data;
+            this.next = next;
+        }
     }
 
-    public static Node head;
-    public static Node tail;
-    public static int size;
-
-    // add first
-    public void addFirst(int data) {
-        Node newNode = new Node(data);
-        size++;
-
-        if (head == null) {
-            head = tail = newNode;
-            return;
-        }
-
-        newNode.next = head;
-        head = newNode;
-    }
-
-    // find middle (slow-fast)
-    public Node findMid(Node head) {
-        Node slow = head;
-        Node fast = head;
-
-        while (fast != null && fast.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-
-        return slow;
-    }
-
-    // reverse linked list
-    public Node reverse(Node head) {
-        Node prev = null;
-        Node curr = head;
-        Node next;
-
-        while (curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
-        }
-
-        return prev;
-    }
-
-    // check palindrome
-    public boolean checkPalindrome() {
-        if (head == null || head.next == null) {
-            return true;
-        }
-
-        // step 1: find middle
-        Node mid = findMid(head);
-
-        // step 2: reverse second half
-        Node secondHalfStart = reverse(mid.next);
-
-        // break first half
-        mid.next = null;
-
-        // step 3: compare both halves
-        Node left = head;
-        Node right = secondHalfStart;
-
-        while (right != null) {
-            if (left.data != right.data) {
-                return false;
-            }
-            left = left.next;
-            right = right.next;
-        }
-
-        return true;
-    }
-
-    // print list
-    public void printll() {
+    // Print Linked List
+    public static void print(Node head) {
         Node temp = head;
 
         while (temp != null) {
@@ -103,16 +31,64 @@ public class Palindrome {
         System.out.println("null");
     }
 
+    // Reverse Linked List
+    private static Node reverseLL(Node head) {
+        Node temp = head;
+        Node prev = null;
+
+        while (temp != null) {
+            Node front = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = front;
+        }
+        return prev;
+    }
+
+    // Check Palindrome
+    private static boolean isPalindrome(Node head) {
+
+        if (head == null || head.next == null) {
+            return true;
+        }
+
+        Node slow = head;
+        Node fast = head;
+
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        Node newHead = reverseLL(slow.next);
+
+        Node first = head;
+        Node second = newHead;
+
+        while (second != null) {
+            if (first.data != second.data) {
+                slow.next = reverseLL(newHead); // Restore list
+                return false;
+            }
+            first = first.next;
+            second = second.next;
+        }
+
+        slow.next = reverseLL(newHead); // Restore list
+        return true;
+    }
+
     public static void main(String[] args) {
-        Palindrome ll = new Palindrome();
 
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(2);
-        ll.addFirst(1);
+        Node head = new Node(1);
+        head.next = new Node(2);
+        head.next.next = new Node(2);
+        head.next.next.next = new Node(1);
 
-        ll.printll();
+        print(head);
 
-        System.out.println(ll.checkPalindrome());
+        System.out.println(isPalindrome(head));
+
+        print(head); // List remains unchanged
     }
 }
