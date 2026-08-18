@@ -1,10 +1,9 @@
 // Problem: Reverse a Doubly Linked List
-// Approach: Traverse the list and swap next and prev pointers of each node, then update head and tail
 // Time Complexity: O(n)
 // Space Complexity: O(1)
 
 public class reverseDoublyLL {
-    public class Node {
+    public static class Node {
         int data;
         Node next;
         Node prev;
@@ -14,60 +13,53 @@ public class reverseDoublyLL {
             this.next = null;
             this.prev = null;
         }
-    }
 
-    public static Node head;
-    public static Node tail;
-    public static int size;
-
-    public void addFirst(int data) {
-        Node newNode = new Node(data);
-        if (head == null) {
-            head = tail = newNode;
-            return;
+        public Node(int data , Node next , Node prev){
+            this.data = data;
+            this.next = next;           
+            this.prev = prev;
         }
-        newNode.next = head;
-        head.prev = newNode;
-        head = newNode;
-        size++;
     }
 
-    public void reverse() {
+    private static Node reverseDLL(Node head){
+        if( head == null || head.next == null){
+            return head;
+        }
         Node prev = null;
         Node curr = head;
-        Node next;
 
-        tail = head;
+        while( curr != null){
+            prev = curr.prev;
+            curr.prev = curr.next;                                          
 
-        while (curr != null) {
-            next = curr.next;
             curr.next = prev;
-            curr.prev = next;
 
-            prev = curr;
-            curr = next;
+            curr = curr.prev;
         }
-
-        head = prev;
+        return prev.prev;
     }
 
     // print
-    public void print() {
-        Node temp = head;
-        while (temp != null) {
-            System.out.print(temp.data + " <-> ");
-            temp = temp.next;
-        }
-        System.out.println("null");
+  private static void print(Node head){
+        while (head != null) {
+            System.out.print(head.data + "<->");
+            head = head.next;
+        }                                          
+        System.out.println("null");                                     
     }
 
     public static void main(String[] args) {
-        reverseDoublyLL dll = new reverseDoublyLL();
-        dll.addFirst(1);
-        dll.addFirst(2);
-        dll.addFirst(3);
-        dll.print();
-        dll.reverse();
-        dll.print();
-    }
+
+    Node head = new Node(1);
+    Node second = new Node(2, null, head);
+    Node third = new Node(3, null, second);
+    Node fourth = new Node(4, null,third);
+
+    head.next = second;
+    second.next = third;
+    third.next = fourth;
+
+    head = reverseDLL(head);
+    print(head);
+}
 }

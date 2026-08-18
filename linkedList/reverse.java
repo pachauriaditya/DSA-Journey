@@ -51,7 +51,7 @@ public class reverse {
     }
 
     // reverse linked list
-    public void reverse() {
+    public void reverse() {  
         Node prev = null;
         Node curr = head;
         Node next;
