@@ -14,7 +14,18 @@ public class iterativeWaytoReverseLL {
         }
     }
 
-    // Print Linked List
+    // We use three pointers:
+// prev  -> previous node
+// temp  -> current node
+// front -> stores next node before reversing the link
+//
+// Time Complexity: O(n)
+// Reason: Each node is visited exactly once.
+//
+// Space Complexity: O(1)
+// Reason: Only three pointers are used; no extra data structure is required.
+    
+
     public static void printll(Node head) {
         Node temp = head;
 
