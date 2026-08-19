@@ -1,0 +1,72 @@
+// Problem: Reverse Linked List
+// Approach: Iterative (3-Pointer Method)
+// Time Complexity: O(n)
+// Space Complexity: O(1)
+public class iterativeWaytoReverseLL {
+
+    public static class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+
+    // We use three pointers:
+// prev  -> previous node
+// temp  -> current node
+// front -> stores next node before reversing the link
+//
+// Time Complexity: O(n)
+// Reason: Each node is visited exactly once.
+//
+// Space Complexity: O(1)
+// Reason: Only three pointers are used; no extra data structure is required.
+    
+
+    public static void printll(Node head) {
+        Node temp = head;
+
+        if (temp == null) {
+            System.out.println("LL is empty");
+            return;
+        }
+
+        while (temp != null) {
+            System.out.print(temp.data + " -> ");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    // Reverse Linked List
+    private static Node reverseLL(Node head) {
+
+        if(head == null || head.next == null){
+            return head;
+        }
+        Node temp = head;
+        Node prev = null;
+
+        while (temp != null) {
+            Node front = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = front;
+        }
+        return prev;
+    }
+
+    public static void main(String[] args) {
+
+        Node head = new Node(2);
+        head.next = new Node(4);
+        head.next.next = new Node(3);
+
+        head = reverseLL(head);
+
+        printll(head);
+    }
+}
