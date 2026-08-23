@@ -7,7 +7,7 @@ public class mergeTwoSortedLL {
             this.data = data;
             this.next = null;
         }
-    }
+    } 
 
     private static Node mergedLL(Node head1 , Node head2){
         Node t1 = head1;
@@ -62,4 +62,3 @@ public class mergeTwoSortedLL {
         printLL(mergedHead);
     }
 }
-
