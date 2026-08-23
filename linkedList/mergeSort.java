@@ -1,82 +1,62 @@
-// Problem: Merge Sort on Linked List
-// Approach: Use divide and conquer — find middle using slow-fast pointer, recursively sort left and right halves, then merge both sorted lists
-// Time Complexity: O(n log n)
-// Space Complexity: O(log n) (recursive stack)
-
-public class mergeSort {
-    public static class Node {
+public class mergeSort{
+    public static class Node{
         int data;
         Node next;
 
-        public Node(int data) {
-            this.data = data;
-            this.next = null;
+        public Node(int data){
+            this.data  = data;
+            this.next  = null;
         }
     }
 
-    public static Node head;
-    public static Node tail;
-
-    // find the middle of LL (Slow-Fast Approach)
-    private Node getMid(Node head) {
+    private static Node findMidNode(Node head){
         Node slow = head;
-        Node fast = head.next;
-
+        Node  fast = head.next;
         while (fast != null && fast.next != null) {
-            slow = slow.next; // +1 step
-            fast = fast.next.next; // +2 steps
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return slow; // slow is our middleNode
+        return slow;
     }
 
-    private Node merge(Node head1, Node head2) {
-        Node mergedLL = new Node(-1);
-        Node temp = mergedLL;
+    private static Node mergeTwoSortedLL(Node list1 , Node list2){
+        Node dummyNode = new Node(-1);
+        Node temp = dummyNode;
 
-        while (head1 != null && head2 != null) {
-            if (head1.data <= head2.data) {
-                temp.next = head1;
-                head1 = head1.next;
-                temp = temp.next;
-            } else {
-                temp.next = head2;
-                head2 = head2.next;
-                temp = temp.next;
+        while ( list1 != null && list2 != null) {
+            if( list1.data < list2.data){
+                temp.next = list1;
+                temp = list1;
+                list1 = list1.next;
+            }else{
+                temp.next = list2;
+                temp = list2;
+                list2 = list2.next;
             }
         }
-        while (head1 != null) {
-            temp.next = head1;
-            head1 = head1.next;
-            temp = temp.next;
-        }
 
-        while (head2 != null) {
-            temp.next = head2;
-            head2 = head2.next;
-            temp = temp.next;
+        if(list1 != null){
+            temp.next = list1;
+        }else{
+            temp.next = list2;
         }
-        return mergedLL.next;
+        return dummyNode.next;
     }
 
-    public Node MergeSort(Node head) {
-        if (head == null || head.next == null) {
-            return head;
-        }
+    private static Node sortLL(Node head){
+        if( head == null || head.next == null) return head;
 
-        Node mid = getMid(head);
+        Node middle = findMidNode(head);
+        Node  right = middle.next;
+        middle.next = null;
+        Node left = head;
 
-        Node rightHead = mid.next;
-        mid.next = null;
-
-        Node newLeft = MergeSort(head);
-        Node newRight = MergeSort(rightHead);
-
-        // merge
-        return merge(newLeft, newRight);
+        left = sortLL(left);
+        right = sortLL(right);
+        return mergeTwoSortedLL(right, left);
     }
 
-    // helper to print LL
-    public static void print(Node head) {
+    private static void printLL(Node head) {
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data + " -> ");
@@ -86,18 +66,19 @@ public class mergeSort {
     }
 
     public static void main(String[] args) {
-        mergeSort list = new mergeSort();
 
-        head = new Node(5);
-        head.next = new Node(4);
-        head.next.next = new Node(3);
-        head.next.next.next = new Node(2);
-        head.next.next.next.next = new Node(1);
+        Node head = new Node(4);
+        head.next = new Node(2);
+        head.next.next = new Node(1);
+        head.next.next.next = new Node(3);
+        head.next.next.next.next = new Node(5);
 
-        print(head);
+        System.out.println("Original Linked List:");
+        printLL(head);
 
-        head = list.MergeSort(head);
+        head = sortLL(head);
 
-        print(head);
+        System.out.println("Sorted Linked List:");
+        printLL(head);
     }
 }
