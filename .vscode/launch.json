@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "largestNum",
+            "request": "launch",
+            "mainClass": "largestNum",
+            "projectName": "DSA-Journey_aacff5a1"
+        },
+        {
+            "type": "java",
             "name": "removeDuplicates",
             "request": "launch",
             "mainClass": "removeDuplicates",
