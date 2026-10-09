@@ -1,6 +1,4 @@
-package linkedList;
-
-public class deleteMidNode {
+public class deleteMiddleNode {
     public static class Node{
         int data ;
         Node next;

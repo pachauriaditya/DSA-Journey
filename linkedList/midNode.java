@@ -1,11 +1,9 @@
-package linkedList;
-
-public public class findMidNode {
+public class midNode {
 
     public static class Node {
         int data;
         Node next;
-
+        
         public Node(int data, Node next) {
             this.data = data;
             this.next = next;

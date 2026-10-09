@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class removeDuplicates {
+public class removeDuplicatesarray {
 
 /*      ---> Brute Force Approach <---
     public static int removeDuplicates(int[] arr) {

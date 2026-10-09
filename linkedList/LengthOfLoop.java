@@ -1,12 +1,4 @@
-package linkedList;
-
- // Problem: Find First Node of Cycle in Linked List
-// LeetCode 142
-// Approach: Floyd's Cycle Detection Algorithm
-// Time Complexity: O(n)
-// Space Complexity: O(1)
-
-public class firstNodeOfCycle {
+public class LengthOfLoop {
 
     public static class Node {
         int data;
@@ -16,36 +8,39 @@ public class firstNodeOfCycle {
             this.data = data;
             this.next = null;
         }
-         public Node(int data , Node next) {
+
+        public Node(int data, Node next) {
             this.data = data;
             this.next = next;
         }
     }
 
-    private static Node detectCycle(Node head) {
+    private static int findLength(Node slow, Node fast) {
+        int count = 1;
+        fast = fast.next;
 
+        while (slow != fast) {
+            count++;
+            fast = fast.next;
+        }
+
+        return count;
+    }
+
+    private static int lengthofLoop(Node head) {
         Node slow = head;
         Node fast = head;
 
         while (fast != null && fast.next != null) {
-
             slow = slow.next;
             fast = fast.next.next;
 
             if (slow == fast) {
-
-                slow = head;
-
-                while (slow != fast) {
-                    slow = slow.next;
-                    fast = fast.next;
-                }
-
-                return slow;
+                return findLength(slow, fast);
             }
         }
 
-        return null;
+        return 0;
     }
 
     public static void main(String[] args) {
@@ -62,13 +57,6 @@ public class firstNodeOfCycle {
         // Create cycle: 80 -> 30
         head.next.next.next.next.next.next.next.next = head.next.next;
 
-        Node startNode = detectCycle(head);
-
-        if (startNode != null) {
-            System.out.println("First Node of Cycle: " + startNode.data);
-        } else {
-            System.out.println("No Cycle");
-        }
+        System.out.println("Length of Loop: " + lengthofLoop(head));
     }
-} 
-    
+}

@@ -1,6 +1,4 @@
-package linkedList;
-
-public class findLengthOfLoop {
+public class InitialNode {
 
     public static class Node {
         int data;
@@ -10,39 +8,36 @@ public class findLengthOfLoop {
             this.data = data;
             this.next = null;
         }
-
-        public Node(int data, Node next) {
+         public Node(int data , Node next) {
             this.data = data;
             this.next = next;
         }
     }
 
-    private static int findLength(Node slow, Node fast) {
-        int count = 1;
-        fast = fast.next;
+    private static Node detectCycle(Node head) {
 
-        while (slow != fast) {
-            count++;
-            fast = fast.next;
-        }
-
-        return count;
-    }
-
-    private static int lengthofLoop(Node head) {
         Node slow = head;
         Node fast = head;
 
         while (fast != null && fast.next != null) {
+
             slow = slow.next;
             fast = fast.next.next;
 
             if (slow == fast) {
-                return findLength(slow, fast);
+
+                slow = head;
+
+                while (slow != fast) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+
+                return slow;
             }
         }
 
-        return 0;
+        return null;
     }
 
     public static void main(String[] args) {
@@ -59,6 +54,13 @@ public class findLengthOfLoop {
         // Create cycle: 80 -> 30
         head.next.next.next.next.next.next.next.next = head.next.next;
 
-        System.out.println("Length of Loop: " + lengthofLoop(head));
+        Node startNode = detectCycle(head);
+
+        if (startNode != null) {
+            System.out.println("First Node of Cycle: " + startNode.data);
+        } else {
+            System.out.println("No Cycle");
+        }
     }
-}
+} 
+    

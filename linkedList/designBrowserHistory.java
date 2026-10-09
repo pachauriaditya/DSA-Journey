@@ -10,7 +10,7 @@ public class designBrowserHistory {
             this.back = null;
         }
     }
-
+    
     static class Browser {
 
         Node currentPage;

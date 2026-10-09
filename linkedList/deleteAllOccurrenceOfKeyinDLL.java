@@ -1,6 +1,4 @@
-package linkedList;
-
-public class deleteAllOccurrencesOfKeyinDLL {
+public class deleteAllOccurrenceOfKeyinDLL {
     public static class Node{
         int data;
         Node next;
