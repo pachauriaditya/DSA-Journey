@@ -1,5 +1,5 @@
-package Stacks;
-import java.util.*;
+import java.util.Queue;
+import java.util.LinkedList;
 public class stackUsingQueue {
     Queue<Integer> q = new LinkedList<>();
 

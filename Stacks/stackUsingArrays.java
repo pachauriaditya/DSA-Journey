@@ -1,5 +1,4 @@
-package Stacks;
-
+import java.util.*;
 public class stackUsingArrays {
  int [] st = new int[10];
  int top = -1;  

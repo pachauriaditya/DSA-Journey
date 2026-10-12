@@ -1,4 +1,3 @@
-package Stacks;
 class Node {
     int data;
     Node next;
