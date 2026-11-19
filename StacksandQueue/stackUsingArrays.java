@@ -1,4 +1,4 @@
-package Stacks;
+package StacksandQueue;
 
 public class stackUsingArrays {
  int [] st = new int[10];
