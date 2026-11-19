@@ -1,5 +1,4 @@
 package StacksandQueue;
-
 public class queueUsingArrays {
     int size = 10;
     int [] q = new int[size];
